@@ -10,6 +10,8 @@
         <base href="<?php echo home_url(); ?>" target="_self">
         <?php wp_head(); ?>
     </head>
+    
+    
     <body <?php body_class(); ?>>
         <h1>Masonry - gutter, margin bottom</h1>
 
