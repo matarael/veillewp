@@ -1,0 +1,22 @@
+{
+  "name": "veillewp",
+  "description": "outil de veille collaboratif sous wordpress",
+  "main": "gulpfile.js",
+  "authors": [
+    "julien boucry"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/matarael/veillewp",
+  "moduleType": [],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.6",
+    "masonry": "^4.0.0"
+  }
+}
