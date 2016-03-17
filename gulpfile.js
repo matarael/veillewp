@@ -48,9 +48,6 @@ gulp.task('scripts', function () {
 gulp.task('watch', function () {
 	gulp.watch(path.assets.less+'*.less', ['styles']);
 	gulp.watch(path.assets.js+'*.js', ['scripts']);
-
-	gulp.watch('./EN/*.php', ['output-en']);
-	gulp.watch('./EN/assets/less/*.less', ['output-en']);
 });
 
 gulp.task('default', ['styles', 'fonts', 'scripts']);
