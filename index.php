@@ -4,7 +4,11 @@
     <h1>Masonry - gutter, margin bottom</h1>
 
     <div class="grid">
-        <div class="grid-item"></div>
+        <div class="grid-item">
+            <h1>
+                la veille de boubou
+            </h1>
+        </div>
         <div class="grid-item grid-item--height2"></div>
         <div class="grid-item grid-item--height3"></div>
         <div class="grid-item grid-item--height2"></div>
