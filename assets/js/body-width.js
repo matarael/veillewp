@@ -1,13 +1,13 @@
 jQuery(document).ready(function($) {
     
 	var self = this;
-	var colonneMax = ($(window).innerWidth() - $(window).innerWidth() % 250) / 250;
+	var colonneMax = ($(window).innerWidth() - $(window).innerWidth() % 300) / 300;
     /* --------------------------------------- METHODS ---------------------------------------- */
 	
 	//dimensionne projectContainer
 	this.size = function(){
-		colonneMax = ($(window).innerWidth() - $(window).innerWidth() % 250) / 250;
-		$( ".grid" ).css( 'width', 250 * colonneMax - 10 + 'px');
+		colonneMax = ($(window).innerWidth() - $(window).innerWidth() % 300) / 300;
+		$( ".grid" ).css( 'width', 300 * colonneMax - 20 + 'px');
 	};
 	
 	/* ---------------------------------------- EVENTS ---------------------------------------- */

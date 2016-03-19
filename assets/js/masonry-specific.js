@@ -4,8 +4,8 @@ jQuery(document).ready(function($) {
 
     $('.grid').masonry({
       itemSelector: '.grid-item',
-      columnWidth: 240,
-      gutter: 10
+      columnWidth: 280,
+      gutter: 20
     });
 
 });
