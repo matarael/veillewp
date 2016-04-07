@@ -128,3 +128,18 @@ function press_this_ptype($link) {
 	return $link;
 }
 add_filter('shortcut_link', 'press_this_ptype', 11);
+
+
+
+//---------------------------------SEARCH---------------------------------//
+
+add_filter( 'query_vars', 'willy_add_query_vars' );
+function willy_add_query_vars( $vars ){
+	$vars[] = "ville";
+	$vars[] = "chambres";
+	$vars[] = "quartiers";
+	$vars[] = "prix-mini";
+	$vars[] = "prix-maxi";
+	$vars[] = "equipements";
+	return $vars;
+}

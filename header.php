@@ -18,20 +18,6 @@
                 <img src="Veillewp/wp-content/themes/veilleWP/assets/img/WAX_LOGO.png"/>
             </div>
             <div id="menu">
-                <ul>
-                    <li>
-                        <a href="http://localhost/veilleWP/" >tout</a>
-                    </li>
-                    <?php
-                        $categories = get_categories();
-                        $separator = ' ';
-                        $output = '';
-
-                        foreach( $categories as $category ) {
-                            $output .= '<li>'.'<a href="' . esc_url( get_category_link( $category->term_id ) ) . '" alt="' . esc_attr( sprintf( __( 'View all posts in %s', 'textdomain' ), $category->name ) ) . '">' . esc_html( $category->name ) . '</a>'.'</li>' . $separator;
-                        }
-                        echo trim( $output, $separator );
-                    ?>
-                </ul>
+                <?php include 'searchform.php'; ?>
             </div>
         </nav>

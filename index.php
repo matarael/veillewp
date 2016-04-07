@@ -13,6 +13,7 @@
                             <?php the_title(); ?>
                         </h1>
                     </a>
+                    <p> <?php the_category() ?> </p>
                     <p class= "auteur"><?php the_time('F jS, Y'); ?> by <?php the_author_posts_link(); ?></p>
                     <?php the_excerpt() ?>
                     <section>
