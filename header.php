@@ -18,6 +18,6 @@
                 <img src="Veillewp/wp-content/themes/veilleWP/assets/img/WAX_LOGO.png"/>
             </div>
             <div id="menu">
-                <?php include 'searchform.php'; ?>
+                <?php get_search_form () ?>
             </div>
         </nav>

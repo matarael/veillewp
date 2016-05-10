@@ -1,38 +1,29 @@
-<form method="get" action="<?php bloginfo('url'); ?>">
-	<!-- Ici on affiche le champ « s »
-	mais nous aurions pu également en faire 
-	un champ de type hidden avec une valeur vide-->
-	<p>
-		<label for="s">Rechercher</label>
-		<input type="text" name="s" value="<?php the_search_query(); ?>" id="s">
-	</p>
-    
-    <p>
-        <label for="s">categories</label>
-        <select name="category_name" multiple="multiple">
-            <option value="all">tout</option>
-            <?php
-                // generate list of categories
-                $categories = get_categories();
-                foreach ($categories as $category) {
-                    //echo '<label for="s"><input type="checkbox" value="' , $category->slug, ' " id="s"/>', $category->name, '</label>';
-                    
-                    echo '<option value="', $category->slug, '">', $category->name, "</option>\n";
-                }
-                ?>
-        </select>
-    </p>
-    
-    <p>
-        <label for="s">categories</label>
-        <ul>
-            <?php wp_list_categories( array(
-                'orderby' => 'name',
-                'depth' => 1,
-                'child_of' => 33
-            ) ); ?> 
-        </ul>
-    </p>
-	<button type="submit">Rechercher</button>
-</form>
+<form  role="search" method="get" class="search-form" action="<?php echo home_url( '/' ); ?>">
 
+    
+    <?php
+
+        $terms = get_terms( array(
+            'taxonomy' => 'category',
+            'hide_empty' => true,
+            'hierarchical' => true,
+        ) );
+        
+            if ( ! empty( $terms ) && ! is_wp_error( $terms ) ){
+                echo '<select multiple name="cat" id="example-getting-started">';
+                    foreach ( $terms as $term ) {
+                        $cats_str = get_category_parents($term->term_id, false, '%#%');     //cherche les categories parentes en les séparants par %#%
+                        $cats_array = explode('%#%', $cats_str);                            //éclate l'obet autour des %#%
+                        $cat_depth = sizeof($cats_array)-2;                                 //Compte le nombre de morceau, ce qui correspond au nombre de parents et donne la profondeur dans la hiérarchie                        
+                        if($cat_depth == 1) {
+                            echo '<option value="' . $term->name . '">' . $term->name . '</option>' ;
+                        }
+                    }
+                
+                echo '</select>';
+            }
+    ?> 
+    
+	<button type="submit">Rechercher</button>
+    
+</form>
