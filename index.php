@@ -5,8 +5,12 @@
         <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
             
             <div class="grid-item">
-                <?php the_post_thumbnail(); ?>
-                <div></div>
+                <?php if( has_post_thumbnail() ) { ?>
+                    <?php the_post_thumbnail(); ?>
+                    <!--<div></div>-->
+                    <div class="arrow-up"></div>
+                <?php } ?>
+                
                 <section>
                     <a href="<?php the_permalink() ?>">
                         <h1>
@@ -14,7 +18,7 @@
                         </h1>
                     </a>
                     <p> <?php the_category() ?> </p>
-                    <p class= "auteur"><?php the_time('F jS, Y'); ?> by <?php the_author_posts_link(); ?></p>
+                    <!--<p class= "auteur"><?php the_time('F jS, Y'); ?> by <?php the_author_posts_link(); ?></p>-->
                     <?php the_excerpt() ?>
                     <section>
               </div>
