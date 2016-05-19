@@ -34,8 +34,8 @@
                             <p> <?php the_category() ?> </p>
                             <!--<p class= "auteur"><?php the_time('F jS, Y'); ?> by <?php the_author_posts_link(); ?></p>-->
                             <?php the_excerpt() ?>
-                            <section>
-                      </div>
+                        </section>
+                    </div>
                     
                     
                     <?php
@@ -63,10 +63,16 @@
                     <p> <?php the_category() ?> </p>
                     <!--<p class= "auteur"><?php the_time('F jS, Y'); ?> by <?php the_author_posts_link(); ?></p>-->
                     <?php the_excerpt() ?>
-                    <section>
-              </div>
+                </section>
+            </div>
+            
         <?php endwhile; endif; ?>
+    </div>
         
-<?php wp_footer(); ?>
-<?php wp_pagenavi(); ?>
-<?php get_footer(); ?>
+    <div class= "footer">
+        <img class="loader" src= "<?php echo get_template_directory_uri(); ?>/assets/img/loader.gif" alt=""/>
+
+        <?php wp_footer(); ?>
+        <?php wp_pagenavi(); ?>
+        <?php get_footer(); ?>
+    </div>

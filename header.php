@@ -15,7 +15,7 @@
     <body <?php body_class(); ?>>
         <nav>
             <div id="logo">
-                <img src="Veillewp/wp-content/themes/veilleWP/assets/img/WAX_LOGO.png"/>
+                <img src= " <?php echo get_template_directory_uri(); ?> /assets/img/WAX_LOGO.png"/>
             </div>
             <div id="menu">
                 <?php get_search_form () ?>

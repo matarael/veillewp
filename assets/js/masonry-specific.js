@@ -6,7 +6,7 @@ function Masonry () {
     var BreakPoints = "" ;
     
     /* --------------------------------------- METHODS ---------------------------------------- */
-	
+    
 	//dimensionne projectContainer
 	this.size = function(){
         GridWidth = (jQuery(".grid").width());
