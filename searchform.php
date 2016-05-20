@@ -13,7 +13,7 @@
         echo '<label>Catégories</label>';
         echo '<br>';
         
-        echo '<select multiple name="cat[]" class="multiselect selectorCategory">';
+        echo '<select multiple name="cat" class="multiselect selectorCategory">';
             foreach ( $terms as $term ) {
                     echo '<option value="' . $term->slug . '">' . $term->name . '</option>' ;
             }
@@ -41,7 +41,7 @@
         $authors = op_all_authors();
         echo '<label>Auteurs</label>';
         echo '<br>';
-        echo '<select multiple name="author[]" class="multiselect selectorAuthor">';
+        echo '<select multiple="multiple" name="author" class="multiselect selectorAuthor">';
             foreach ( $authors as $author ) {
                     echo '<option value="' . $author . '">' . $author . '</option>' ;
             }
@@ -53,5 +53,8 @@
     ?> 
     <br>
 	<button class='search' type="submit">Rechercher</button>
+	
     
 </form>
+
+<button id="example-order-button" class='btn btn-primary search'>Rechercher</button>
