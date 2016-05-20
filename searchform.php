@@ -3,27 +3,55 @@
     
     <?php
 
+    //list des catégories
         $terms = get_terms( array(
             'taxonomy' => 'category',
-            'hide_empty' => true,
-            'hierarchical' => true,
+            //'hide_empty' => true,
+            //'hierarchical' => true,
         ) );
         
-            if ( ! empty( $terms ) && ! is_wp_error( $terms ) ){
-                echo '<select multiple name="cat" id="example-getting-started">';
-                    foreach ( $terms as $term ) {
-                        $cats_str = get_category_parents($term->term_id, false, '%#%');     //cherche les categories parentes en les séparants par %#%
-                        $cats_array = explode('%#%', $cats_str);                            //éclate l'obet autour des %#%
-                        $cat_depth = sizeof($cats_array)-2;                                 //Compte le nombre de morceau, ce qui correspond au nombre de parents et donne la profondeur dans la hiérarchie                        
-                        if($cat_depth == 1) {
-                            echo '<option value="' . $term->name . '">' . $term->name . '</option>' ;
-                        }
-                    }
-                
-                echo '</select>';
+        echo '<label>Catégories</label>';
+        echo '<br>';
+        
+        echo '<select multiple name="cat[]" class="multiselect selectorCategory">';
+            foreach ( $terms as $term ) {
+                    echo '<option value="' . $term->slug . '">' . $term->name . '</option>' ;
             }
-    ?> 
+
+        echo '</select>';
+        
+        
+    //Authors list function
+        //Gets an array of the available authors
+        function op_all_authors() {
+            global $wpdb;
+            $order = 'user_nicename';
+            $user_ids = $wpdb->get_col("SELECT ID FROM $wpdb->users ORDER BY $order");
+
+            foreach($user_ids as $user_id) :
+                $user = get_userdata($user_id);
+                $all_authors[$user_id] = $user->display_name;
+            endforeach;
+            return $all_authors;
+        }
+        
+        echo '<br>';
     
-	<button type="submit">Rechercher</button>
+    //Author name
+        $authors = op_all_authors();
+        echo '<label>Auteurs</label>';
+        echo '<br>';
+        echo '<select multiple name="author[]" class="multiselect selectorAuthor">';
+            foreach ( $authors as $author ) {
+                    echo '<option value="' . $author . '">' . $author . '</option>' ;
+            }
+
+        echo '</select>';
+    
+        
+            
+    ?> 
+    <br>
+	<button class='search' type="submit">Rechercher</button>
     
 </form>

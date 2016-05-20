@@ -1,11 +1,24 @@
 
 <?php get_header(); ?>
-    
+<!--    <pre>-->
+    <?php
+//    list des catégories
+//        $terms = get_terms( array(
+//            'taxonomy' => 'category',
+//            'hide_empty' => true,
+            //'hierarchical' => true,
+//        ) );
+        
+//        print_r ($terms);
+        ?>
+<!--    </pre>-->
+
         <div class="grid">
             
         <?php
             $args = array(
-                'category_name'      => $_GET['cat']
+                'category_name'      => $_GET['cat'],
+                'author_name'        => $_GET['author']
             );
             
             
@@ -14,7 +27,7 @@
             $query = new WP_Query( $args );
 
 
-            if (isset ($args['category_name']))
+            if (isset ($args) )
             // The Loop
                 while ( $query->have_posts() ) {
                     $query->the_post(); ?>
@@ -45,7 +58,7 @@
 
 
         
-        <?php if (have_posts() && !isset ($args['category_name']))  : while (have_posts()) : the_post(); ?>
+        <?php if (have_posts() && !isset ($args) )  : while (have_posts()) : the_post(); ?>
             
             <div class="grid-item">
                 <?php if( has_post_thumbnail() ) { ?>

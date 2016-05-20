@@ -14,17 +14,18 @@ function enqueue_bootstrap() {
 // Adds other vendors  & libs
 function enqueue_vendors() {
     wp_enqueue_script('masonry-js', get_template_directory_uri() . '/bower_components/masonry/dist/masonry.pkgd.min.js', 'jquery' );
+    wp_enqueue_script('bootstrap-multiselect-js', get_template_directory_uri() . '/bower_components/bootstrap-multiselect/dist/js/bootstrap-multiselect.js', 'jquery' );
     //wp_register_script( 'infinite-scroll', get_template_directory_uri().'/assets/js/infinitescroll.min.js', 'jquery', '2.0', true );
 	//wp_enqueue_script( 'infinite-scroll' );
 }
 
-// Adds main script and style files
+// Adds main script and style
 function enqueue_app(){
 	// adds main app stylesheet
 	wp_enqueue_style('app-css', get_template_directory_uri() . '/app.css', array() ); // no dependencies since bootstrap is re-compiled inside it via gulp.
 
 	// adds main app js file
-	wp_enqueue_script('app-js', get_template_directory_uri() . '/app.js', array('bootstrap-js', 'masonry-js') );
+	wp_enqueue_script('app-js', get_template_directory_uri() . '/app.js', array('bootstrap-js', 'masonry-js', 'bootstrap-multiselect-js') );
 }
 
 

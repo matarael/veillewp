@@ -17,6 +17,7 @@
   ],
   "dependencies": {
     "bootstrap": "^3.3.6",
-    "masonry": "^4.0.0"
+    "masonry": "^4.0.0",
+    "bootstrap-multiselect": "^0.9.13"
   }
 }

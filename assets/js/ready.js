@@ -3,5 +3,6 @@ jQuery(document).ready(function(){
 	masonry = new Masonry();
     menu = new Menu();
     infinitescroll = new InfiniteScroll();
+    multiselect = new MultiSelect();
 /* -------------------------------------- INITIALIZE -------------------------------------- */
 });
